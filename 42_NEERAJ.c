@@ -31,14 +31,22 @@ void print(struct node * head){
  }
 }
 //code for deletion of element from the end of the list
+struct node * delt(struct node * head){
+ struct node * temp=head;
+ while(temp->next->next!=NULL)
+ {
+ temp=temp->next;
+ }
+ struct node * temp1=temp->next;
+ temp->next=NULL;
+ free(temp1);
 
+ }
 //main function
 int main(){
  struct node * head=createnode(41);
  insert(head,42);
  insert(head,0);
-
+ delt(head);
  print(head);
 }
-
-
